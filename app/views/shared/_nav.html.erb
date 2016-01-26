@@ -8,15 +8,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">[C]</a>
+      <a class="navbar-brand" href="#">
+          <%= image_tag("c.gif", size: '42', alt: '[C]', class: "logo") %>
+      </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <% if logged_in? %>
         <ul class="nav navbar-nav">
-          <li><%= link_to 'New Ticker', new_ticker_path %></li>
-          <li><%= link_to 'List Tickers', tickers_path %></li>
+          <li><%= link_to 'New Assignment', new_assignment_path %></li>
+          <li><%= link_to 'Group Board', boards_path %></li>
+          <li>My Board</li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><%= link_to @current_user.name + " (Log Out)", logout_path, 
