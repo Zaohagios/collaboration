@@ -18,8 +18,7 @@
       <% if logged_in? %>
         <ul class="nav navbar-nav">
           <li><%= link_to 'New Assignment', new_assignment_path %></li>
-          <li><%= link_to 'Group Board', boards_path %></li>
-          <li>My Board</li>
+          <li><%= link_to 'My Boards', boards_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><%= link_to @current_user.name + " (Log Out)", logout_path, 
