@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  assignment: 1
+  owner: 1
+  body: MyText
+
+two:
+  assignment: 1
+  owner: 1
+  body: MyText

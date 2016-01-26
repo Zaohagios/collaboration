@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  board: 1
+  subject: MyString
+  body: MyText
+  status: false
+  due_date: 2016-01-26 07:28:38
+  level: 1
+  comments: 1
+  type: 1
+
+two:
+  board: 1
+  subject: MyString
+  body: MyText
+  status: false
+  due_date: 2016-01-26 07:28:38
+  level: 1
+  comments: 1
+  type: 1
