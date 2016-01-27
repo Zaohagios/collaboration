@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:sucess] = "Account for " + @user.email + " is now regisred."
-      redirect_to boards_path
+      redirect_to new_board_path
     else
       render 'new'
     end

@@ -15,5 +15,9 @@ module SessionsHelper
     def logged_in?
        !current_user.nil?
     end
-     
+    
+    def get_user_id
+        current_user
+        get_user_id = @current_user.id
+    end
 end

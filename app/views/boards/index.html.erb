@@ -1,27 +1,8 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-6">
-            <h3 class="text-center">My Board</h3>
-            <div class="lboard well">
-                <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-success"><span class="badge">12</span>First item</a>
-                    <a href="#" class="list-group-item list-group-item-info">Second item</a>
-                    <a href="#" class="list-group-item list-group-item-warning">Third item</a>
-                    <a href="#" class="list-group-item list-group-item-danger">Fourth item</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6">
-           <h3 class="text-center">Group Board</h3>
-            <div class="rboard well">
-                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-success">First item</a>
-                    <a href="#" class="list-group-item list-group-item-info">Second item</a>
-                    <a href="#" class="list-group-item list-group-item-warning">Third item</a>
-                    <a href="#" class="list-group-item list-group-item-danger">Fourth item</a>
-                </div>
-            </div>
-        </div>
+<h3 class="text-center">My Boards</h3>
+<div class="well">
+    <div class="list-group">
+        <% @boards.each do |b| %>
+            <%= board_list(b) %>
+        <% end %>
     </div>
-</div>
 </div>
