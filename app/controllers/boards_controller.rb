@@ -20,7 +20,7 @@ class BoardsController < ApplicationController
   end
   
   def show
-    @assignments = Assignment.where(board: params[:id]).find_each
+    @assignments = Assignment.where(board: @board.group).find_each
   end
   
   def destroy
