@@ -1,15 +1,22 @@
 class AssignmentsController < ApplicationController
-  before_action :set_assignment, only: [:edit, :update, :show, :destroy]
+  before_action :set_assignment, only: [:edit, :update, :show, :destroy, :assign_task]
   def new
     @assignment = Assignment.new
   end
   
+  def assign_task
+        @assignment.owner = get_user_id()
+        if @assignment.save
+        end
+  end
+    
   def index
     @assignments = Assignment.all
   end
   
   def create
     @assignment = Assignment.new(assignment_params)
+    @assignment.owner = "0"
     if @assignment.save
       flash[:success] = "Assignment Created!"
       redirect_to boards_path

@@ -15,7 +15,14 @@ module AssignmentsHelper
             a_level = "info"
         end
         a_color = '" class="list-group-item list-group-item-' + a_level + '">'
-#        a_msgs = '<span class="badge">0</span>'
-        ('<a href="' + assignment_path(a) + a_color + a.subject + '</a>').html_safe 
-    end    
+        if a.owner == 0 
+            
+            ('<a href="' + assignment_path(a) + a_color + a.subject + '</a>').html_safe
+        else
+            ('<a href="' + assignment_path(a) + a_color + User.find(a.owner).name + 
+             ' : ' + a.subject + '</a>').html_safe
+        end
+    end
+    
+    
 end
