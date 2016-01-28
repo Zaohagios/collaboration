@@ -13,13 +13,14 @@ class BoardsController < ApplicationController
     @board = Board.new(board_params)
     if @board.save
       flash[:success] = "Board Created"
-      redirect_to boards_path(@board)
+      redirect_to board_path(@board)
     else
       render 'new'
     end
   end
   
   def show
+    @assignments = Assignment.where(board: params[:id]).find_each
   end
   
   def destroy

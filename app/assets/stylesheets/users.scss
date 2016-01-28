@@ -1,11 +1,16 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
 
+.bootstrap-datetimepicker-widget {
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
 footer {
   border-color: #e7e7e7;
   background-color: #f1f1f1;
