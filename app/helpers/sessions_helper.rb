@@ -17,7 +17,7 @@ module SessionsHelper
     end
     
     def get_user_id
-        current_user
-        get_user_id = @current_user.id
+        current_user()
+        @current_user.id
     end
 end

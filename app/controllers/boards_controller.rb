@@ -23,6 +23,10 @@ class BoardsController < ApplicationController
     @assignments = Assignment.where(board: @board.group).find_each
   end
   
+  def myboard
+    @assignments = Assignment.where(owner: get_user_id).find_each
+  end
+  
   def destroy
     @board.destroy
     flash[:danger] = "Board has been deleted!"

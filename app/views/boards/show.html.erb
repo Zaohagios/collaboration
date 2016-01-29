@@ -1,8 +1,2 @@
-<h3 class="text-center"><%= @board.name %></h3>
-<div class="well">
-    <div class="list-group">
-        <% @assignments.each do |a| %>
-            <%= assignment_list(a) %>
-        <% end %>
-    </div>
-</div>
+<h2 class="text-center"><%= @board.name %></h2>
+<%= render 'board' %>

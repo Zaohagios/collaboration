@@ -1,13 +1,21 @@
 class AssignmentsController < ApplicationController
-  before_action :set_assignment, only: [:edit, :update, :show, :destroy, :assign_task]
+  before_action :set_assignment, only: [:edit, :update, :show, :destroy]
   def new
     @assignment = Assignment.new
   end
   
   def assign_task
-        @assignment.owner = get_user_id()
-        if @assignment.save
-        end
+    @assignment = Assignment.find(params[:format])
+    @assignment.owner = get_user_id()
+    @assignment.save 
+    redirect_to boards_path
+  end
+
+  def drop_task
+    @assignment = Assignment.find(params[:format])
+    @assignment.owner = 0
+    @assignment.save 
+    redirect_to boards_path
   end
     
   def index

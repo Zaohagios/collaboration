@@ -11,6 +11,10 @@
 <%= form_for @assignment do |f| %>
 
 <p>
+    <%= f.label :due_date %><br>
+    <%= f.datetime_select :due_date %>
+</p>
+<p>
     <%= f.label :subject %><br>
     <%= f.text_field :subject %>
 </p>
@@ -22,13 +26,12 @@
     <%= f.label :level, 'Priority' %>
     <%= f.select :level, [['Lowest', '1'],['Low', '2'],['Medium', '3'],['High', '4'],['Highest', '5']] %>
     
-    
+
     <br>
     <%= f.label :board %>
     <%= f.select :board, [['OA', '1'],['HRA', '2'],['HRBP', '3']] %>
     
     <br>
-    <%= f.hidden_field :owner, value: get_user_id %>
 </p>
 <%= f.submit %>
 <% end %>

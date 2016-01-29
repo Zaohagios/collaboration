@@ -1,0 +1,22 @@
+<div class="well">
+    <ul class="list-group">
+        <% @assignments.each do |a| %>
+            <li class="list-group-item list-group-item-<%= assignment_color(a) %>">
+                
+                <% if a.owner == get_user_id %>
+                    <a href="<%= drop_path(a) %>">
+                        <span class="glyphicon glyphicon-remove" style="color:red" aria-hidden="true"></span></a>
+                    <%= link_to ('<span class="glyphicon glyphicon-check" style="color:blue" aria-hidden="true"></span>').html_safe, 
+                        assignment_path(a), method: "delete", data: { confirm: "Are you sure you completed the assignment?" } %>
+                <% end %>
+                <% if a.owner == 0 %>
+                    <a href="<%= assign_path(a) %>">
+                        <span class="glyphicon glyphicon-plus" style="color:green" aria-hidden="true"></span>
+                    </a>
+                <% end %>
+                <strong style="color:black"><%= a.owner == 0 ? "" : assignment_user(a) %></strong>
+                <%= a.subject %>
+            </li>
+        <% end %>
+    </ul>
+</div>
