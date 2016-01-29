@@ -8,14 +8,14 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.find(params[:format])
     @assignment.owner = get_user_id()
     @assignment.save 
-    redirect_to boards_path
+    redirect_to board_path(@assignment.board)
   end
 
   def drop_task
     @assignment = Assignment.find(params[:format])
     @assignment.owner = 0
     @assignment.save 
-    redirect_to boards_path
+    redirect_to board_path(@assignment.board)
   end
     
   def index
