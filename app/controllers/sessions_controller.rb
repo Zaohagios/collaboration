@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
   def new
+    if logged_in? then 
+      redirect_to boards_path
+    end
   end
   
   def create
