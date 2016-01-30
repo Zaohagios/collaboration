@@ -16,7 +16,5 @@ module AssignmentsHelper
         end
     end
     
-    def assignment_user(a)
-        User.find(a.owner).name
-    end
+    
 end

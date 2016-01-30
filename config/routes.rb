@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :washes
   get 'assignments/new'
   get 'boards/new'
   get 'sessions/new'

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Completed by:</strong>
+  <%= @wash.completed_by %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @wash.title %>
+</p>
+
+<%= link_to 'Edit', edit_wash_path(@wash) %> |
+<%= link_to 'Back', washes_path %>
