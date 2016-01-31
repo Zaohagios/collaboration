@@ -3,6 +3,23 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
+  def edit
+    set_user()
+  end
+  
+  def show
+  end
+  
+  def update
+    set_user()
+    if @user.save
+      flash[:success] = "Account Updated!"
+      redirect_to boards_path
+    else
+      render 'new'
+    end
+  end
+  
   def create
     @user = User.new(user_params)
     if @user.save
@@ -20,6 +37,6 @@ class UsersController < ApplicationController
     end
     
     def set_user
-      @user = User.find(params[:id])
+      @user = User.find(get_user_id())
     end
 end
