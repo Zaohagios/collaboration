@@ -69,6 +69,6 @@ class WashesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wash_params
-      params.require(:wash).permit(:completed_by, :title)
+      params.require(:wash).permit(:completed_by, :title, :board)
     end
 end

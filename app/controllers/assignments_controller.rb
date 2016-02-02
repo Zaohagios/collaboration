@@ -39,6 +39,7 @@ class AssignmentsController < ApplicationController
   end
   
   def destroy
+    assignment_log
     @assignment.destroy
     flash[:info] = "Assignment Completed!"
     redirect_to boards_path
@@ -70,7 +71,7 @@ class AssignmentsController < ApplicationController
     end
 
     def assignment_log
-      Wash.create(completed_by: session[:user_id], title: "")
+      Wash.create(completed_by: session[:user_id], title: @assignment.subject, board: @assignment.board)
     end
     
 end
