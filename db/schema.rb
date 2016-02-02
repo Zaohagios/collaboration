@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160130232013) do
+ActiveRecord::Schema.define(version: 20160202064940) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "board"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20160130232013) do
     t.string   "title"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "board"
   end
 
 end

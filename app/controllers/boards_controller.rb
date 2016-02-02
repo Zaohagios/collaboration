@@ -24,7 +24,7 @@ class BoardsController < ApplicationController
   end
   
   def myboard
-    @assignments = Assignment.where(owner: get_user_id).find_each
+    @assignments = Assignment.where(owner: session[:user_id]).find_each
   end
   
   def destroy

@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  resources :washes
-  get 'assignments/new'
-  get 'boards/new'
-  get 'sessions/new'
-  get 'users/new'
   
   get 'boards/myboard'
   # The priority is based upon order of creation: first created -> highest priority.
@@ -14,7 +9,7 @@ Rails.application.routes.draw do
   get   'assign'  => 'assignments#assign_task'
   get    'drop'    => 'assignments#drop_task'
   root'sessions#new'
-  resources :boards, :users, :assignments
+  resources :boards, :users, :assignments, :washes
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

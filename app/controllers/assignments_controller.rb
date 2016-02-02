@@ -1,12 +1,12 @@
 class AssignmentsController < ApplicationController
-  before_action :set_assignment, only: [:edit, :update, :show, :destroy]
+  before_action :set_assignment, only: [:edit, :update, :show, :destroy, :send]
   def new
     @assignment = Assignment.new
   end
   
   def assign_task
     @assignment = Assignment.find(params[:format])
-    @assignment.owner = get_user_id()
+    @assignment.owner = session[:user_id]
     @assignment.save 
     redirect_to request.referer
   end
@@ -34,11 +34,13 @@ class AssignmentsController < ApplicationController
   end
   
   def show
+    # Ajax prep
+    # render :partial => 'form', :content_type => 'text/html'
   end
   
   def destroy
     @assignment.destroy
-    flash[:danger] = "Assignment has been deleted!"
+    flash[:info] = "Assignment Completed!"
     redirect_to boards_path
   end
   
@@ -66,5 +68,9 @@ class AssignmentsController < ApplicationController
     def set_assignment
       @assignment = Assignment.find(params[:id])
     end
-  
+
+    def assignment_log
+      Wash.create(completed_by: session[:user_id], title: "")
+    end
+    
 end

@@ -15,7 +15,7 @@
 <p>
     <%= f.label :group %><br />
     <%= f.select :group, [['OA', '1'],['HRA', '2'],['HRBP', '3']] %>
-    <%= f.hidden_field :owner, value: get_user_id %>
+    <%= f.hidden_field :owner, value: session[:user_id] %>
 </p>
 <p>
     <%= f.submit 'Create Board' %>

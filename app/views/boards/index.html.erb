@@ -1,10 +1,10 @@
 <h3 class="text-center">My Boards</h3>
 <div class="well">
     <div class="list-group">
+        <%= my_board() %>
+        <br>
         <% @boards.each do |b| %>
             <%= board_list(b) %>
         <% end %>
-        <br>
-        <%= my_board() %>
     </div>
 </div>

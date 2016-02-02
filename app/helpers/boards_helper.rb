@@ -8,7 +8,7 @@ module BoardsHelper
     
     def my_board
         board_color = '" class="list-group-item list-group-item-success">'
-        board_count = Assignment.where(owner: get_user_id()).find_each.count
+        board_count = Assignment.where(owner: session[:user_id]).find_each.count
         board_msgs = '<span class="badge">' + board_count.to_s + '</span>'
         ('<a href="' + boards_myboard_path + board_color + board_msgs + 'My Assignments' + '</a>').html_safe         
     end
