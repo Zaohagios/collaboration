@@ -4,7 +4,7 @@ class WashesController < ApplicationController
   # GET /washes
   # GET /washes.json
   def index
-    @washes = Wash.all
+    @washes = Wash.where(board: params[:board]).find_each
   end
 
   # GET /washes/1

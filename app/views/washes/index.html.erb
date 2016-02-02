@@ -1,10 +1,10 @@
 <h1>Wash for: <%= Board.find_by(id: params[:board]).name %></h1>
   <table class="table">
-      <th style="width: 100px;">Completed At</th>
+      <th style="width: 112px;">Completed At</th>
       <th style="width: 144px;">Completed By</th>
       <th>Assignment</th>
     <tbody>
-      <% @washes.each do |wash| %>
+      <% @washes.reverse_each do |wash| %>
       <tr>
         <td style="text-align: left;">
           <span class="badge">

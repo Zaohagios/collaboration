@@ -12,4 +12,9 @@ module BoardsHelper
         board_msgs = '<span class="badge">' + board_count.to_s + '</span>'
         ('<a href="' + boards_myboard_path + board_color + board_msgs + 'My Assignments' + '</a>').html_safe         
     end
+    
+    def datetime_color(dt)
+        timediff = (dt - (DateTime.now - 5.hours))
+        timediff < 30.minutes ? 'red' : 'blue'
+    end
 end
