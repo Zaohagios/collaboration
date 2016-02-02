@@ -17,7 +17,7 @@
                         <span class="glyphicon glyphicon-plus" style="color:green" aria-hidden="true"></span></a>
                 <% end %>
                 <strong style="color:black"><%= a.owner == 0 ? "" : User.find(a.owner).name %></strong>
-                <%= link_to a.subject, assignment_path(a), class: "m_a_link" , url: assignment_path(a) %>
+                <%= link_to a.subject, assignment_path(a), remote: true %>
             </li>
         <% end %>
     </ul>

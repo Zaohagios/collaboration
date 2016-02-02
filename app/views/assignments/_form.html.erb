@@ -8,7 +8,7 @@
 <% end %>
 
 
-<%= form_for @assignment do |f| %>
+<%= form_for @assignment, remote: true do |f| %>
 
 <p>
     <%= f.label :due_date %><br>

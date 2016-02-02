@@ -1,5 +1,6 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:edit, :update, :show, :destroy, :send]
+  
   def new
     @assignment = Assignment.new
   end
@@ -35,7 +36,9 @@ class AssignmentsController < ApplicationController
   
   def show
     # Ajax prep
-    # render :partial => 'form', :content_type => 'text/html'
+    respond_to do |format|
+      format.js
+    end
   end
   
   def destroy
