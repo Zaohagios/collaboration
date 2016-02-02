@@ -28,14 +28,16 @@ class AssignmentsController < ApplicationController
     @assignment.owner = "0"
     if @assignment.save
       flash[:success] = "Assignment Created!"
-      redirect_to boards_path
+    respond_to do |format|
+        format.js
+    end
+      # redirect_to boards_path
     else
       render 'new'
     end
   end
   
   def show
-    # Ajax prep
     respond_to do |format|
       format.js
     end
@@ -53,10 +55,11 @@ class AssignmentsController < ApplicationController
   end
   
   def update
-    board_id = @assignment.board
     if @assignment.update(assignment_params)
       flash[:success] = "Assignment Updated!"
-      redirect_to board_path(board_id)
+      respond_to do |format|
+        format.js
+      end 
     else
       render 'edit'
     end

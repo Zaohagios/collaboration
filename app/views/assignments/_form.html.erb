@@ -1,13 +1,3 @@
-<% if @assignment.errors.any? %>
-<h2>Following Errors:</h2>
-<ul>
-    <% @assignment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-    <% end %>
-</ul>
-<% end %>
-
-
 <%= form_for @assignment, remote: true do |f| %>
 
 <p>
@@ -27,5 +17,5 @@
     <%= f.select :board, [['OA', '1'],['HRA', '2'],['HRBP', '3']] %>
     <br>
 </p>
-<%= f.submit %>
+<%= f.submit  %>
 <% end %>

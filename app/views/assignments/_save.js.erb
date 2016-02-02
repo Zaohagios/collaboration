@@ -1,0 +1,9 @@
+$("ul.errors").html("")
+<% if @assignment.errors.any? %>
+  <% @assignment.errors.full_messages.each do |msg| %>
+    $("ul.errors").append($("<li />").html("<%= msg.html_safe %>"))
+  <% end %>
+<% else %>
+    location.reload()
+    $('#modal-editing').modal("hide")
+<% end %>
