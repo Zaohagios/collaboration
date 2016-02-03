@@ -28,10 +28,9 @@ class AssignmentsController < ApplicationController
     @assignment.owner = "0"
     if @assignment.save
       flash[:success] = "Assignment Created!"
-    respond_to do |format|
-        format.js
-    end
-      # redirect_to boards_path
+      respond_to do |format|
+          format.js
+      end
     else
       render 'new'
     end
