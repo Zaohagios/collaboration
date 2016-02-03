@@ -14,7 +14,7 @@
     
     <br>
     <%= f.label :board %>
-    <%= f.select :board, [['OA', '1'],['HRA', '2'],['HRBP', '3']] %>
+    <%= f.select :board, get_board_names %>
     <br>
 </p>
 <%= f.submit  %>

@@ -17,4 +17,12 @@ module BoardsHelper
         timediff = (dt - (DateTime.now - 5.hours))
         timediff < 30.minutes ? 'red' : 'blue'
     end
+    
+    def get_board_names
+        ar = []
+        Board.all.each do |b|
+            ar << [b.name, b.id]
+        end
+        ar
+    end
 end
