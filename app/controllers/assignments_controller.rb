@@ -47,7 +47,7 @@ class AssignmentsController < ApplicationController
     assignment_log
     @assignment.destroy
     flash[:info] = "Assignment Completed!"
-    redirect_to boards_path
+    redirect_to request.referer
   end
   
   def edit
