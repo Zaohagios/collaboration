@@ -25,14 +25,16 @@ class StandardWorksController < ApplicationController
   # POST /standard_works.json
   def create
     @standard_work = StandardWork.new(standard_work_params)
-
+    @standard_work.owner = 0
     respond_to do |format|
       if @standard_work.save
         format.html { redirect_to @standard_work, notice: 'Standard work was successfully created.' }
         format.json { render :show, status: :created, location: @standard_work }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @standard_work.errors, status: :unprocessable_entity }
+        format.js { render :new }
       end
     end
   end

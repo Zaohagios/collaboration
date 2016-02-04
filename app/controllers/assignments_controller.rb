@@ -77,7 +77,7 @@ class AssignmentsController < ApplicationController
     end
 
     def assignment_log
-      Wash.create(completed_by: session[:user_id], title: @assignment.subject, board: @assignment.board)
+      Wash.create(completed_by: session[:user_id], title: @assignment.subject, board: @assignment.board, comments: params[:comment])
     end
     
 end
