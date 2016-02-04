@@ -1,0 +1,53 @@
+<%= form_for(@standard_work) do |f| %>
+  <% if @standard_work.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@standard_work.errors.count, "error") %> prohibited this standard_work from being saved:</h2>
+
+      <ul>
+      <% @standard_work.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<p>
+    <%= f.label :subject %> - 
+    <%= f.text_field :subject %>
+</p>
+<p>
+    <%= f.label :board %> - 
+    <%= f.select :board, get_board_names %>
+</p>
+  <div class="field">
+    <%= f.label :start_time %> - 
+    <%= f.time_select :start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :due_time %> - 
+    <%= f.time_select :due_time %>
+  </div>
+  <div class="field">
+    <%= f.label :sun %>
+    <%= f.check_box :sun %>
+    <%= f.label :mon %>
+    <%= f.check_box :mon %>
+    <%= f.label :tue %>
+    <%= f.check_box :tue %>
+    <%= f.label :wed %>
+    <%= f.check_box :wed %><br>
+    <%= f.label :thu %>
+    <%= f.check_box :thu %>
+    <%= f.label :fri %>
+    <%= f.check_box :fri %>
+    <%= f.label :sat %>
+    <%= f.check_box :sat %>
+  </div>
+  <div class="field">
+    <%= f.label :level %> - 
+    <%= f.select :level, [['Lowest', '1'],['Low', '2'],['Medium', '3'],['High', '4'],['Highest', '5']] %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

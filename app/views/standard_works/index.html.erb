@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Standard Works</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Board</th>
+      <th>Start time</th>
+      <th>Due time</th>
+      <th>Sun</th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+      <th>Level</th>
+      <th>Owner</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @standard_works.each do |standard_work| %>
+      <tr>
+        <td><%= standard_work.subject %></td>
+        <td><%= standard_work.board %></td>
+        <td><%= standard_work.start_time %></td>
+        <td><%= standard_work.due_time %></td>
+        <td><%= standard_work.sun %></td>
+        <td><%= standard_work.mon %></td>
+        <td><%= standard_work.tue %></td>
+        <td><%= standard_work.wed %></td>
+        <td><%= standard_work.thu %></td>
+        <td><%= standard_work.fri %></td>
+        <td><%= standard_work.sat %></td>
+        <td><%= standard_work.level %></td>
+        <td><%= standard_work.owner %></td>
+        <td><%= link_to 'Show', standard_work %></td>
+        <td><%= link_to 'Edit', edit_standard_work_path(standard_work) %></td>
+        <td><%= link_to 'Destroy', standard_work, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Standard work', new_standard_work_path %>

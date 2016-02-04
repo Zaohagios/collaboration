@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202064940) do
+ActiveRecord::Schema.define(version: 20160204045930) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "board"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 20160202064940) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "owner"
+  end
+
+  create_table "board_names", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "group"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "boards", force: :cascade do |t|
@@ -50,6 +57,24 @@ ActiveRecord::Schema.define(version: 20160202064940) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "standard_works", force: :cascade do |t|
+    t.string   "subject"
+    t.integer  "board"
+    t.time     "start_time"
+    t.time     "due_time"
+    t.boolean  "sun"
+    t.boolean  "mon"
+    t.boolean  "tue"
+    t.boolean  "wed"
+    t.boolean  "thu"
+    t.boolean  "fri"
+    t.boolean  "sat"
+    t.integer  "level"
+    t.integer  "owner"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
@@ -57,6 +82,7 @@ ActiveRecord::Schema.define(version: 20160202064940) do
     t.text     "bio"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "admin"
   end
 
   create_table "washes", force: :cascade do |t|

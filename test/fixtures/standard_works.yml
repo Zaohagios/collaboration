@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subject: MyString
+  board: 1
+  start_time: 2016-02-04 04:59:30
+  due_time: 2016-02-04 04:59:30
+  sun: false
+  mon: false
+  tue: false
+  wed: false
+  thu: false
+  fri: false
+  sat: false
+  level: 1
+  owner: 1
+
+two:
+  subject: MyString
+  board: 1
+  start_time: 2016-02-04 04:59:30
+  due_time: 2016-02-04 04:59:30
+  sun: false
+  mon: false
+  tue: false
+  wed: false
+  thu: false
+  fri: false
+  sat: false
+  level: 1
+  owner: 1
