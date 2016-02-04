@@ -1,25 +1,13 @@
-<%= form_for(@wash) do |f| %>
-  <% if @wash.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@wash.errors.count, "error") %> prohibited this wash from being saved:</h2>
-
-      <ul>
-      <% @wash.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :completed_by %><br>
-    <%= f.number_field :completed_by %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= form_for @wash, remote: true do |f| %>
+    <%= f.label 'Subject:' %>
+    <%= f.hidden_field :title, :value => @assignment.subject %>
+    <%= f.label @assignment.subject %><br>
+  <p>
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment %>
+  </p>
+    <%= f.hidden_field :title, :value =>  @assignment.subject %>
+    <%= f.hidden_field :board, :value =>  @assignment.board %>
+    <%= f.hidden_field :completed_by, :value =>  @assignment.owner %>
+    <%= f.button 'Complete', name: 'id', value: @assignment.id %>
 <% end %>

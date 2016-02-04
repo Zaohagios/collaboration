@@ -3,6 +3,7 @@
       <th style="width: 112px;">Completed At</th>
       <th style="width: 144px;">Completed By</th>
       <th>Assignment</th>
+      <th>Comments</th>
     <tbody>
       <% @washes.reverse_each do |wash| %>
       <tr>
@@ -13,6 +14,7 @@
         </td>
         <td style="text-align: left;"><%= User.find_by(id: wash.completed_by).name %></td>
         <td><%= wash.title %></td>
+        <td><%= wash.comment %></td>
       </tr>
       <% end %>
     </tbody>

@@ -15,6 +15,7 @@ class WashesController < ApplicationController
   # GET /washes/new
   def new
     @wash = Wash.new
+    @assignment = Assignment.find(params[:id])
   end
 
   # GET /washes/1/edit
@@ -25,14 +26,14 @@ class WashesController < ApplicationController
   # POST /washes.json
   def create
     @wash = Wash.new(wash_params)
-
+    @assignment = Assignment.find(params[:id])
     respond_to do |format|
       if @wash.save
-        format.html { redirect_to @wash, notice: 'Wash was successfully created.' }
-        format.json { render :show, status: :created, location: @wash }
+        @assignment.destroy
+        flash[:info] = "Assignment Completed!"
+        format.js
       else
-        format.html { render :new }
-        format.json { render json: @wash.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -42,11 +43,9 @@ class WashesController < ApplicationController
   def update
     respond_to do |format|
       if @wash.update(wash_params)
-        format.html { redirect_to @wash, notice: 'Wash was successfully updated.' }
-        format.json { render :show, status: :ok, location: @wash }
+        format.js
       else
-        format.html { render :edit }
-        format.json { render json: @wash.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -69,6 +68,6 @@ class WashesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wash_params
-      params.require(:wash).permit(:completed_by, :title, :board)
+      params.require(:wash).permit(:completed_by, :title, :board, :comment, :assigment_id)
     end
 end

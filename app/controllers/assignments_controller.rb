@@ -50,6 +50,7 @@ class AssignmentsController < ApplicationController
     redirect_to request.referer
   end
   
+  
   def edit
     
   end
@@ -59,7 +60,7 @@ class AssignmentsController < ApplicationController
       flash[:success] = "Assignment Updated!"
       respond_to do |format|
         format.js
-      end 
+      end
     else
       render 'edit'
     end
