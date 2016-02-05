@@ -47,8 +47,6 @@ class AssignmentsController < ApplicationController
     end
   end
   
-
-  
   def destroy
     assignment_log
     @assignment.destroy

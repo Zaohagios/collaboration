@@ -1,5 +1,5 @@
 <%= form_for @assignment do |f| %>
-<p>Assign: <%= @assignment.subject %></p>
+<p>Assignment: <%= @assignment.subject %></p>
 <p>
     <%= f.label 'Assign to?' %>
     <%= f.select :owner, get_user_names %>
