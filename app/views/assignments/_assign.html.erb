@@ -1,7 +1,7 @@
-<%= form_for @assignment, remote = true do |f| %>
+<%= form_for @assignment do |f| %>
 <p>Assign: <%= @assignment.subject %></p>
 <p>
-    <%= f.label 'To:' %>
+    <%= f.label 'Assign to?' %>
     <%= f.select :owner, get_user_names %>
 </p>
 <%= f.submit %>

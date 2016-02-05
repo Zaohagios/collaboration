@@ -12,6 +12,10 @@ class AssignmentsController < ApplicationController
     redirect_to request.referer
   end
 
+  def assign_show
+    @assignment = Assignment.find(params[:format])
+  end
+
   def drop_task
     @assignment = Assignment.find(params[:format])
     @assignment.owner = 0
@@ -43,11 +47,7 @@ class AssignmentsController < ApplicationController
     end
   end
   
-  def assign_show
-    respond_to do |format|
-      format.js
-    end
-  end
+
   
   def destroy
     assignment_log
@@ -64,9 +64,7 @@ class AssignmentsController < ApplicationController
   def update
     if @assignment.update(assignment_params)
       flash[:success] = "Assignment Updated!"
-      respond_to do |format|
-        format.js
-      end
+      redirect_to request.referer
     else
       render 'edit'
     end
