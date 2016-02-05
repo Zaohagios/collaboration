@@ -25,4 +25,17 @@ module BoardsHelper
         end
         ar
     end
+    
+    def get_user_names
+        ar = []
+        User.all.each do |u|
+            ar << [u.name, u.id]
+        end
+        ar
+    end
+    
+    def is_admin
+        @user = User.find(session[:user_id])
+        @user.admin == 1 ? true : false
+    end
 end

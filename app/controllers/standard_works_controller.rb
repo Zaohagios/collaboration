@@ -7,8 +7,13 @@ class StandardWorksController < ApplicationController
     @standard_works = StandardWork.all
   end
 
+  def show_board_sw
+    @standard_works = StandardWork.where(board: params[:board]).find_each
+  end
+
   # GET /standard_works/1
   # GET /standard_works/1.json
+  
   def show
   end
 

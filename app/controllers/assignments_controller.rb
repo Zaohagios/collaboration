@@ -43,6 +43,12 @@ class AssignmentsController < ApplicationController
     end
   end
   
+  def assign_show
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   def destroy
     assignment_log
     @assignment.destroy

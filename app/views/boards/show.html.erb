@@ -1,4 +1,6 @@
 <h2 class="text-center">
-    <%= @board.name %> <%= link_to "(Wash)", washes_path(:board => @board.id), style: "font-size: 12px;" %>
+    <%= @board.name %> 
+    <%= link_to "(Wash)", washes_path(:board => @board.id), style: "font-size: 12px;" %> 
+    <%= link_to "(SW)", show_sw_path(:board => @board.id), style: "font-size: 12px;" %>
 </h2>
 <%= render 'board' %>

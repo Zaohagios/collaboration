@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:edit, :update, :show, :destroy]
+  before_action :verify_logged_in
   def new
     @board = Board.new
   end
@@ -52,5 +53,11 @@ class BoardsController < ApplicationController
     
     def set_board
       @board = Board.find(params[:id])
+    end
+    
+    def verify_logged_in
+      unless logged_in? 
+        redirect_to root_path
+      end
     end
 end
