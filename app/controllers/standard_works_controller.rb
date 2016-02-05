@@ -8,7 +8,7 @@ class StandardWorksController < ApplicationController
   end
 
   def show_board_sw
-    @standard_works = StandardWork.where(board: params[:board]).find_each
+    @standard_works = StandardWork.where(params[1]).find_each
   end
 
   # GET /standard_works/1
