@@ -51,6 +51,7 @@ class StandardWorksController < ApplicationController
       if @standard_work.update(standard_work_params)
         format.html { redirect_to @standard_work, notice: 'Standard work was successfully updated.' }
         format.json { render :show, status: :ok, location: @standard_work }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @standard_work.errors, status: :unprocessable_entity }

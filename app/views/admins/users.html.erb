@@ -1,0 +1,5 @@
+<div class="container"><ul>
+    <% @users.each do |u| %>
+        <li><%= u.name %> : Admin? <%= u.admin == 1 ? "True" : "False" %></li>
+    <% end %>
+</ul></div>

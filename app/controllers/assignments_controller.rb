@@ -1,23 +1,19 @@
 class AssignmentsController < ApplicationController
-  before_action :set_assignment, only: [:edit, :update, :show, :destroy, :send]
-  
+  before_action :set_assignment, only: [:edit, :update, :show, :destroy, :send, :assign_show, :assign_task, :drop_task]
   def new
     @assignment = Assignment.new
   end
   
   def assign_task
-    @assignment = Assignment.find(params[:format])
     @assignment.owner = session[:user_id]
     @assignment.save 
     redirect_to request.referer
   end
 
   def assign_show
-    @assignment = Assignment.find(params[:format])
   end
 
   def drop_task
-    @assignment = Assignment.find(params[:format])
     @assignment.owner = 0
     @assignment.save
     redirect_to request.referer
@@ -76,7 +72,7 @@ class AssignmentsController < ApplicationController
     def set_assignment
       @assignment = Assignment.find(params[:id])
     end
-
+    
     def assignment_log
       Wash.create(completed_by: session[:user_id], title: @assignment.subject, board: @assignment.board, comments: params[:comment])
     end
