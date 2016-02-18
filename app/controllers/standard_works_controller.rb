@@ -8,9 +8,16 @@ class StandardWorksController < ApplicationController
   end
 
   def show_board_sw
-    @standard_works = StandardWork.where(params[1]).find_each
+    @standard_works = StandardWork.where(board: params[:board]).find_each
   end
 
+  def populate
+    @standard_works = StandardWork.where(board: params[:board]).find_each
+    time_now = Time.now.hour * 60 + Time.now.min
+    @standard_works.each do |sw|
+      
+    end
+  end
   # GET /standard_works/1
   # GET /standard_works/1.json
   
@@ -77,6 +84,6 @@ class StandardWorksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def standard_work_params
-      params.require(:standard_work).permit(:subject, :board, :start_time, :due_time, :sun, :mon, :tue, :wed, :thu, :fri, :sat, :level, :owner)
+      params.require(:standard_work).permit(:subject, :board, :start_time, :due_time, :sun, :mon, :tue, :wed, :thu, :fri, :sat, :level, :owner, :day, :night)
     end
 end

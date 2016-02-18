@@ -25,7 +25,9 @@ th, td {
       <th>Sat</th>
       <th>Level</th>
       <th>Owner</th>
-      <th colspan="2">Options</th>
+      <th>Days</th>
+      <th>Nights</th>
+      <th colspan="3">Options</th>
     </tr>
   </thead>
 
@@ -34,8 +36,8 @@ th, td {
       <tr>
         <td><%= standard_work.subject %></td>
         <td><%= Board.find(standard_work.board).name %></td>
-        <td><%= standard_work.start_time %></td>
-        <td><%= standard_work.due_time %></td>
+        <td><%= standard_work.start_time.hour %>:<%= standard_work.start_time.min %></td>
+        <td><%= standard_work.due_time.hour %>:<%= standard_work.due_time.min %></td>
         <td><%=  standard_work.sun ? ('<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>').html_safe : ""%></td>
         <td><%= standard_work.mon ? ('<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>').html_safe : ""%></td>
         <td><%= standard_work.tue ? ('<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>').html_safe : ""%></td>
@@ -45,6 +47,9 @@ th, td {
         <td><%= standard_work.sat ? ('<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>').html_safe : ""%></td>
         <td><%= standard_work.level %></td>
         <td><%= standard_work.owner %></td>
+        <td><%= standard_work.day %></td>
+        <td><%= standard_work.night %></td>
+        <td>Add</td>
         <td><%= link_to 'Edit', edit_standard_work_path(standard_work), remote: true %></td>
         <td><%= link_to 'Destroy', standard_work, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

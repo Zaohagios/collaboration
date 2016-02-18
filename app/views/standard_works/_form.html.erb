@@ -13,7 +13,7 @@
 
 <p>
     <%= f.label :subject %> - 
-    <%= f.text_field :subject %>
+    <%= f.text_field :subject, style: "width: 344px;" %>
 </p>
 <p>
     <%= f.label :board %> - 
@@ -42,6 +42,12 @@
     <%= f.check_box :fri %>
     <%= f.label :sat %>
     <%= f.check_box :sat %>
+  </div>
+  <div class="field">
+    <%= f.label :day %>
+    <%= f.check_box :day %>
+    <%= f.label :night %>
+    <%= f.check_box :night %><br>
   </div>
   <div class="field">
     <%= f.label :level %> - 
